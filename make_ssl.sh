@@ -16,9 +16,9 @@ cd ${certDir}
 IP="192.168.1.10"
 PORT="8883"
 
-SUBJECT_CA="/C=TR/ST=Istanbul/L=Istanbul/O=IKOM_BILISIM/OU=CA/CN=$IP"
-SUBJECT_SERVER="/C=TR/ST=Istanbul/L=Istanbul/O=IKOM_BILISIM/OU=Server/CN=$IP"
-SUBJECT_CLIENT="/C=TR/ST=Istanbul/L=Istanbul/O=IKOM_BILISIM/OU=Client/CN=$IP"
+SUBJECT_CA="/C=TR/ST=Istanbul/L=Istanbul/O=IBILISIM/OU=CA/CN=$IP"
+SUBJECT_SERVER="/C=TR/ST=Istanbul/L=Istanbul/O=IBILISIM/OU=Server/CN=$IP"
+SUBJECT_CLIENT="/C=TR/ST=Istanbul/L=Istanbul/O=IBILISIM/OU=Client/CN=$IP"
 
 function generate_CA () {
    echo "$SUBJECT_CA"
