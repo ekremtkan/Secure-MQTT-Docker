@@ -4,6 +4,27 @@
 
 First you must generate the certificates used for TLS, if you already have certificates skip to the next section.
 
+# Use Examples
+# Generate Certificates scripts
+```
+bash make_ssl.sh
+```
+
+## Server
+```
+mosquitto -c /dev/shm/certs/mosquitto.conf -v 
+```
+
+## Subcriber
+```
+mosquitto_sub -h 192.168.1.10 -p 8883  --cafile /dev/shm/certs/ca.crt --cert /dev/shm/certs/client.crt --key /dev/shm/certs/client.key -t temperature
+```
+## Publisher
+```
+mosquitto_pub  -h 192.168.1.10 -p 8883 --cafile /dev/shm/certs/ca.crt --cert /dev/shm/certs/client.crt --key /dev/shm/certs/client.key -t temperature -m testmesg 
+```
+
+
 # Generate Certificates
 
 `cd ./config` before executing this section.
@@ -111,17 +132,4 @@ Move the `rootCA.crt` and `server.*` into the `./config` directory and adjust th
 `docker run -it --rm -v $pwd/config:/mosquitto/config eclipse-mosquitto mosquitto_passwd -c /mosquitto/config/passwords.txt <username>`
 
 to add more users change `-c` to `-b`
-
-# Use Examples
-##Server
-
-mosquitto -c /dev/shm/certs/mosquitto.conf -v
-
-##Subcriber
-
-mosquitto_sub -h 192.168.1.10 -p 8883  --cafile /dev/shm/certs/ca.crt --cert /dev/shm/certs/client.crt --key /dev/shm/certs/client.key -t temperature
-
-##Publisher
-
-mosquitto_pub  -h 192.168.1.10 -p 8883 --cafile /dev/shm/certs/ca.crt --cert /dev/shm/certs/client.crt --key /dev/shm/certs/client.key -t temperature -m testmesg 
 
