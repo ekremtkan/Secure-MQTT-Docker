@@ -7,6 +7,9 @@ First you must generate the certificates used for TLS, if you already have certi
 # Use Examples
 # Generate Certificates scripts
 ```
+#if not installed  mosquitto mosquitto-clients 
+#sudo apt-get install mosquitto mosquitto-clients
+cd /dev/shm
 bash make_ssl.sh
 ```
 
